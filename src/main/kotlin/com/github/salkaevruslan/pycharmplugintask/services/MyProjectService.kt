@@ -1,7 +1,7 @@
-package org.jetbrains.plugins.template.services
+package com.github.salkaevruslan.pycharmplugintask.services
 
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.template.MyBundle
+import com.github.salkaevruslan.pycharmplugintask.MyBundle
 
 class MyProjectService(project: Project) {
 
