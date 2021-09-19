@@ -1,18 +1,21 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.salkaevruslan.pycharmplugintask</id>
-    <name>pycharm-plugin-task</name>
+    <name>Pycharm-Task</name>
     <vendor>salkaevruslan</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.python</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.salkaevruslan.pycharmplugintask.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.salkaevruslan.pycharmplugintask.services.MyProjectService"/>
+        <localInspection groupName="Python"
+                         displayName="Dynamic method called as static"
+                         language="Python"
+                         enabledByDefault="true"
+                         implementationClass="com.github.salkaevruslan.pycharmplugintask.inspections.PsiInspection" />
+        <toolWindow id="Custom inspection info" secondary="true" icon="AllIcons.General.Modified" anchor="right"
+                    factoryClass="com.github.salkaevruslan.pycharmplugintask.window.InfoWindowFactory"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.salkaevruslan.pycharmplugintask.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>
